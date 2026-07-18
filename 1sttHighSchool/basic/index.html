@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZoomTech - مذكرة البرمجة الشاملة للصف الأول الثانوي</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- CodeMirror for Editor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Pyodide -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <!-- Canvas Confetti for Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="logo">zoom<span>Tech</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#concepts">المفاهيم الأساسية</a></li>
+            <li><a href="#basics">أساسيات بايثون</a></li>
+            <li><a href="#compiler" class="highlight">المترجم التفاعلي</a></li>
+            <li><a href="#quiz">بنك الأسئلة</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero section glass-panel">
+            <div class="hero-content">
+                <h1>مرحباً بك في <span class="gradient-text">ZoomTech</span></h1>
+                <p>دليلك الشامل والتفاعلي لتعلم أساسيات الكمبيوتر، الخوارزميات، والبرمجة بلغة بايثون. مصمم خصيصاً ليرافقك في منهج البرمجة والذكاء الاصطناعي بأسلوب ممتع واحترافي.</p>
+                <a href="#concepts" class="btn primary-btn">ابدأ الرحلة الآن</a>
+            </div>
+            <div class="hero-image floating-img" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                <img src="assets/images/profile_edited.png" alt="ZoomTech Profile" class="profile-img" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 100%; max-width: 350px;">
+                <div class="profile-name" style="background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.9)); padding: 10px 30px; border-radius: 50px; border: 1px solid var(--secondary); box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4); font-weight: bold; font-size: 1.3rem; color: #fff; text-align: center;">
+                    المهندس/ حازم احمد اسماعيل
+                </div>
+            </div>
+        </section>
+
+        <!-- Foundation Concepts Section -->
+        <section id="concepts" class="section glass-panel">
+            <h2 class="section-title">المفاهيم الأساسية (Foundation)</h2>
+            <p class="section-desc">قبل كتابة الأكواد، يجب أن تفهم كيف يعمل الكمبيوتر وكيف يفكر المبرمج.</p>
+            
+            <div class="concept-block">
+                <div class="concept-text">
+                    <h3>1. الهاردوير والسوفت وير (Hardware & Software)</h3>
+                    <p>الكمبيوتر يتكون من شقين رئيسيين يتكاملان معاً:</p>
+                    <ul>
+                        <li><strong>الهاردوير (Hardware):</strong> هي الأجزاء الملموسة مثل المعالج (CPU) الذي يعتبر عقل الكمبيوتر، والذاكرة (RAM)، واللوحة الأم، وحتى شاشة الموبايل الذي في يدك.</li>
+                        <li><strong>البرمجيات (Software):</strong> هي الأوامر والبرامج غير الملموسة التي تدير الهاردوير، مثل نظام التشغيل (Windows أو Android) والتطبيقات المختلفة. الهاردوير بلا برمجيات هو مجرد قطعة حديد خردة!</li>
+                    </ul>
+                    <div class="tutorial-box">
+                        <strong>مثال تطبيقي:</strong> هاتفك المحمول.
+                        <p>الشاشة، والبطارية، والكاميرا التي تلمسها بيدك هي (الهاردوير). بينما تطبيق الواتساب (WhatsApp) أو لعبة ببجي التي تفتحها للعب هي (السوفت وير).</p>
+                        <img src="assets/images/tutorial_hw_sw_ar.png" alt="Hardware vs Software Tutorial" class="tutorial-img">
+                    </div>
+                </div>
+                <div class="concept-image">
+                    <img src="assets/images/hardware.png" alt="Hardware and Software">
+                </div>
+            </div>
+
+            <div class="concept-block reverse">
+                <div class="concept-text">
+                    <h3>2. لغات الكمبيوتر (Computer Languages)</h3>
+                    <p>الكمبيوتر لا يفهم لغتنا البشرية! هو جهاز إلكتروني يفهم فقط "النبضات الكهربائية" والتي نرمز لها بـ 0 (لا توجد نبضة) و 1 (توجد نبضة).</p>
+                    <p>هذه تسمى <strong>لغة الآلة (Machine Code)</strong>. ولأن كتابة الأصفار والوحايد صعبة جداً علينا، ابتكر البشر <strong>لغات البرمجة عالية المستوى</strong> مثل (Python)، وهي لغات قريبة من الإنجليزية. نكتب الكود بها، ثم يقوم برنامج وسيط يسمى "المترجم" أو "المفسر" بتحويلها إلى أصفار ووحايد ليفهمها الكمبيوتر.</p>
+                </div>
+                <div class="concept-image">
+                    <img src="assets/images/languages.png" alt="Computer Languages Evolution">
+                </div>
+            </div>
+
+            <div class="concept-block">
+                <div class="concept-text">
+                    <h3>3. الخوارزميات (Algorithms)</h3>
+                    <p>الخوارزمية هي ببساطة <strong>"خطوات منطقية ومتسلسلة لحل مشكلة معينة"</strong>. تماماً مثل وصفة الطبخ، يجب أن تكون الخطوات مرتبة وواضحة.</p>
+                    <p>قبل أن تكتب كود بايثون، يجب أن تفكر في الخوارزمية وتكتبها على ورق أو ترسمها باستخدام <strong>الخرائط التدفقية (Flowcharts)</strong> لترتيب أفكارك المنطقية واكتشاف الأخطاء مبكراً.</p>
+                    <div class="tutorial-box">
+                        <strong>مثال تطبيقي (خطوات إعداد الشاي):</strong>
+                        <p>لا يمكنك صب الماء قبل غليه! الخوارزمية تعلمنا الترتيب: 1- ابدأ. 2- اغلِ الماء. 3- ضع كيس الشاي. 4- صب الماء. 5- النهاية.</p>
+                        <img src="assets/images/tutorial_algo_ar.png" alt="Algorithm Tutorial" class="tutorial-img">
+                    </div>
+                </div>
+                <div class="concept-image">
+                    <img src="assets/images/algorithms.png" alt="Algorithms and Flowcharts">
+                </div>
+            </div>
+        </section>
+
+        <!-- Python Basics Section -->
+        <section id="basics" class="section glass-panel">
+            <h2 class="section-title">أساسيات لغة بايثون (Python)</h2>
+            <div class="tutorial-box full-width" style="margin-bottom: 30px;">
+                <h3>كيف يتم تنفيذ كود بايثون فعلياً؟ (خطوة بخطوة)</h3>
+                <p>شاهد هذه الصورة التي توضح الرحلة من كتابة الكود حتى يظهر على الشاشة:</p>
+                <img src="assets/images/tutorial_python_ar.png" alt="Python Execution Tutorial" class="tutorial-img center-img">
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>لماذا بايثون؟</h3>
+                    <p>لغة بايثون هي اللغة الأولى عالمياً في مجالات الذكاء الاصطناعي، وهي اللغة المعتمدة في المنهج المصري لسهولتها وقوتها.</p>
+                </div>
+                <div class="card">
+                    <h3>الطباعة (Print)</h3>
+                    <p>دالة الطباعة هي طريقتك لجعل الكمبيوتر يكتب على الشاشة.</p>
+                    <code dir="ltr">print("ZoomTech is great!")</code>
+                </div>
+                <div class="card">
+                    <h3>المتغيرات (Variables)</h3>
+                    <p>صناديق نضع فيها البيانات ونعطيها اسماً. بايثون تتعرف على النوع تلقائياً.</p>
+                    <code dir="ltr">name = "Hazem"<br>score = 100</code>
+                </div>
+                <div class="card">
+                    <h3>التعليقات (Comments)</h3>
+                    <p>ملاحظات يكتبها المبرمج لنفسه أو لزملائه، والكمبيوتر يتجاهلها تماماً.</p>
+                    <code dir="ltr"># هذا تعليق لتوضيح الكود<br>x = 5</code>
+                </div>
+                <div class="card">
+                    <h3>العمليات الحسابية</h3>
+                    <p>الجمع (+)، الطرح (-)، الضرب (*)، القسمة (/). إضافة لباقي القسمة (%).</p>
+                    <code dir="ltr">result = 10 % 3  # النتيجة 1</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compiler Section -->
+        <section id="compiler" class="section glass-panel compiler-section">
+            <h2 class="section-title">المترجم التفاعلي (ZoomTech Compiler)</h2>
+            <p class="section-desc">المكان الأمثل لتطبيق ما تعلمته. اكتب كود بايثون هنا واضغط "تشغيل الكود" لتنفيذه مباشرة!</p>
+            
+            <div class="compiler-container">
+                <div class="editor-pane">
+                    <div class="pane-header">
+                        <span>محرر الكود (main.py)</span>
+                        <button id="run-btn" class="btn run-btn">
+                            <span class="icon">▶</span> تشغيل الكود
+                        </button>
+                    </div>
+                    <textarea id="code-editor"># جرب كتابة كودك الأول هنا!
+print("مرحباً بك في ZoomTech!")
+
+# تجربة المتغيرات والعمليات
+hardware = 5
+software = 10
+total = hardware + software
+print("المجموع هو:", total)
+</textarea>
+                </div>
+                <div class="output-pane">
+                    <div class="pane-header">
+                        <span>النتيجة (Output)</span>
+                        <div id="loader" class="loader hidden"></div>
+                    </div>
+                    <pre id="output-terminal" dir="ltr"></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section glass-panel">
+            <h2 class="section-title">بنك أسئلة ZoomTech التفاعلي</h2>
+            <p class="section-desc">اختبر استيعابك للمفاهيم والأساسيات. سيتم تصحيح إجاباتك فوراً مع توضيح الإجابة الصحيحة إذا أخطأت!</p>
+            
+            <div id="quiz-container" class="quiz-container">
+                <!-- Quiz questions will be injected here via JS -->
+            </div>
+            
+            <div class="quiz-controls hidden" id="quiz-controls">
+                <button id="submit-quiz" class="btn primary-btn">تسليم الإجابات وإظهار النتيجة</button>
+                <div id="quiz-result" class="quiz-result hidden"></div>
+            </div>
+        </section>
+
+        <!-- zoomBot Widget -->
+        <div class="zoombot-widget">
+            <button id="zoombot-toggle" class="zoombot-toggle">
+                <img src="assets/images/zoombot_avatar.jpg" alt="zoomBot Avatar" class="zoombot-avatar">
+            </button>
+            <div id="zoombot-panel" class="zoombot-panel hidden glass-panel">
+                <div class="zoombot-header">
+                    <h3>🤖 المساعد الذكي (zoomBot)</h3>
+                    <div class="zoombot-actions">
+                        <button id="zoombot-close-btn" title="إغلاق">❌</button>
+                    </div>
+                </div>
+                
+                <div id="zoombot-messages" class="zoombot-messages">
+                    <div class="bot-msg">مرحباً! أنا zoomBot، مساعدك الشخصي لمادة البرمجة. اسألني أي سؤال إذا لم تفهم شيئاً!</div>
+                </div>
+                
+                <div class="zoombot-input-area">
+                    <input type="text" id="zoombot-input" placeholder="اكتب سؤالك هنا...">
+                    <button id="zoombot-send">إرسال</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="glass-panel">
+        <p>ZoomTech © 2026 - المذكرة الشاملة لمنهج البرمجة والذكاء الاصطناعي (الصف الأول الثانوي).</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    <script src="questions.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="chatbot.js" defer></script>
+</body>
+</html>
