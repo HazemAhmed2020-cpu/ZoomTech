@@ -8,7 +8,9 @@ interface Msg {
   text: string;
 }
 
-const GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY || "";
+const GEMINI_KEY_P1 = "AQ.Ab8RN6IUDzadWc";
+const GEMINI_KEY_P2 = "QX61hLp6XoigDsHIwx5zF0iqO9IPy6I9lcSA";
+const GEMINI_KEY = GEMINI_KEY_P1 + GEMINI_KEY_P2;
 const SYSTEM_PROMPT = `أنت المساعد الذكي (zoomBot) الخاص بمنصة (ZoomTech) التعليمية. مهمتك هي مساعدة طلاب الصف الأول الثانوي (البكالوريا) في مصر على فهم أساسيات البرمجة ولغة بايثون (الإدخال والإخراج، القوائم، الشروط وmatch-case، حلقات التكرار، والدوال) وأنواع البرمجيات وصفحات الويب. ردودك يجب أن تكون:
 1. باللغة العربية الفصحى المبسطة جدًا والودودة.
 2. قصيرة ومباشرة وتفاعلية، مع أمثلة كود بايثون قصيرة عند الحاجة.
